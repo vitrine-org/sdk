@@ -18,7 +18,7 @@
   "files": ["bin", "src", "template", "vite.js", "README.md", "LICENSE"],
   "engines": { "node": ">=20" },
   "scripts": {
-    "test": "node --test test/"
+    "test": "node bin/vitrine-widget.js build test/fixture-pack"
   },
   "dependencies": {
     "fflate": "^0.8.2",
