@@ -1,0 +1,13 @@
+{
+  "name": "fixture-pack",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vitrine-widget build",
+    "pack": "vitrine-widget pack",
+    "dev": "vitrine-widget dev"
+  },
+  "dependencies": {
+    "@vitrine/sdk": "github:vitrine-widgets/sdk#v2.0.0"
+  }
+}

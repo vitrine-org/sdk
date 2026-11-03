@@ -1,0 +1,19 @@
+{
+  "id": "dev.vitrine.test",
+  "name": "My widgets",
+  "version": "1.0.0",
+  "author": "",
+  "description": "Widgets for Vitrine",
+  "minEngine": "2.0.0",
+  "widgets": [
+    {
+      "id": "clock",
+      "name": "Clock",
+      "description": "Time and date",
+      "entry": "src/clock/index.tsx",
+      "settings": "src/clock/settings.json",
+      "size": { "default": [4, 2], "min": [3, 2], "max": [8, 4] },
+      "permissions": []
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "@vitrine/sdk",
+  "version": "2.0.0",
+  "description": "SDK and tooling to build Vitrine widgets with JSX and SolidJS",
+  "license": "MIT",
+  "author": "Emanuele Frascella",
+  "repository": { "type": "git", "url": "git+https://github.com/vitrine-widgets/sdk.git" },
+  "homepage": "https://vitrine-widgets.github.io/",
+  "type": "module",
+  "bin": { "vitrine-widget": "bin/vitrine-widget.js" },
+  "exports": {
+    ".": "./src/index.ts",
+    "./renderer": "./src/renderer.ts",
+    "./vite": "./vite.js",
+    "./package.json": "./package.json"
+  },
+  "types": "./src/index.ts",
+  "files": ["bin", "src", "template", "vite.js", "README.md", "LICENSE"],
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test test/"
+  },
+  "dependencies": {
+    "fflate": "^0.8.2",
+    "solid-js": "^1.9.0",
+    "vite": "^7.0.0",
+    "vite-plugin-solid": "^2.11.0"
+  }
+}

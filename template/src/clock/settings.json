@@ -1,0 +1,9 @@
+[
+  {
+    "title": "Appearance",
+    "settings": {
+      "accent": { "type": "string", "default": "#60CDFF", "label": "Accent color", "pattern": "^#[0-9a-fA-F]{6}$", "patternMessage": "Use a hex color such as #60CDFF" },
+      "showSeconds": { "type": "boolean", "default": false, "label": "Show seconds" }
+    }
+  }
+]
