@@ -147,3 +147,26 @@ export function useStorage<T>(key: string, initial: T): [Accessor<T>, (v: T) => 
 export function openUrl(url: string) {
   host.openUrl(url);
 }
+
+// ── appearance ────────────────────────────────────────────────────────
+export interface Appearance {
+  /** Windows "app mode" is dark. */
+  dark: boolean;
+  /** The user's accent colour, `#rrggbb`. */
+  accent: string;
+}
+
+const readAppearance = (): Appearance => {
+  try {
+    return { dark: true, accent: "#0078d4", ...JSON.parse(host.appearance()) };
+  } catch {
+    return { dark: true, accent: "#0078d4" };
+  }
+};
+const [appearance, setAppearance] = createSignal<Appearance>(readAppearance());
+on("appearance", (a: Appearance) => setAppearance({ ...appearance(), ...a }));
+
+/** Windows light/dark mode and accent colour, updated live when the user changes them. */
+export function useAppearance(): Accessor<Appearance> {
+  return appearance;
+}

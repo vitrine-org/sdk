@@ -14,6 +14,7 @@ export interface HostApi {
   size(): string;
   openUrl(url: string): void;
   localeInfo(locale?: string): string;
+  appearance(): string;
   now(): number;
   info: string;
 }
@@ -36,6 +37,7 @@ const detachedHost: HostApi = {
   size: () => '{"width":0,"height":0}',
   openUrl() {},
   localeInfo: () => "{}",
+  appearance: () => '{"dark":true,"accent":"#0078d4"}',
   now: () => Date.now(),
   info: "{}",
 };

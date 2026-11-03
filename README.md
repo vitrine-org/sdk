@@ -31,6 +31,8 @@ mount(() => <Clock />);
 `view` (flex/grid box), `text` / `span` (styled text, `br` for line breaks), `image`, and `svg` with
 `g`, `circle`, `ellipse`, `rect`, `line`, `path`. Styles are camelCase and CSS-like: flexbox, grid,
 padding, borders, radii, gradients, shadows, transforms, transitions on numeric values, fonts.
+As in CSS, a `view` lays out its children in a row by default (`flexDirection: "column"` to stack
+them) and children may shrink: give fixed-size decorations such as dividers `flexShrink: 0`.
 
 ## APIs
 
@@ -41,6 +43,7 @@ padding, borders, radii, gradients, shadows, transforms, transitions on numeric 
 | `useSystem(["cpu", "memory", …], ms)` | System metrics (declare `system.<metric>` permissions) |
 | `useSettings(defaults)` | Instance settings from the control panel, updated live |
 | `useSize()` | Widget size in DIPs |
+| `useAppearance()` | Windows light/dark mode and accent colour, live |
 | `useStorage(key, initial)` | Value persisted per widget instance |
 | `formatDate(date, "dddd D MMMM")`, `formatTime`, `localeInfo` | Locale-aware formatting (QuickJS has no `Intl`) |
 | `fetch(url)` | HTTP to hosts declared as `net:<host>` permissions |

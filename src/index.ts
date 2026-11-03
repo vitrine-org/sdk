@@ -6,11 +6,13 @@ import { flush, render as renderInto, root } from "./renderer";
 export { formatDate, formatTime, localeInfo, type LocaleInfo } from "./format";
 export {
   openUrl,
+  useAppearance,
   useClock,
   useSettings,
   useSize,
   useStorage,
   useSystem,
+  type Appearance,
   type Metric,
   type Size,
   type SystemSnapshot,
