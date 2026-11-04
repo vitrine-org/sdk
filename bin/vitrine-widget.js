@@ -72,6 +72,7 @@ async function build(root, { watch = false } = {}) {
     outManifest.widgets.push({ ...w, entry: `widgets/${w.id}/index.js` });
   }
   for (const f of m.fonts ?? []) copyInto(root, out, f);
+  if (typeof m.icon === "string") copyInto(root, out, m.icon);
   for (const f of ["README.md", "LICENSE", "icon.png"]) if (existsSync(join(root, f))) cpSync(join(root, f), join(out, f));
   writeFileSync(join(out, "vitrine.json"), JSON.stringify(outManifest, null, 2));
   return { manifest: m, out };
