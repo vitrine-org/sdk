@@ -44,6 +44,7 @@ them) and children may shrink: give fixed-size decorations such as dividers `fle
 | `useSystem(["cpu", "memory", …], ms)` | System metrics (declare `system.<metric>` permissions) |
 | `useSettings(defaults)` | Instance settings from the control panel, updated live |
 | `useSize()` | Widget size in DIPs |
+| `useResponsive(refs)` | Shape (`square`, `wide`, `tall`) and scale for responsive layouts |
 | `useAppearance()` | Windows light/dark mode and accent colour, live |
 | `useStorage(key, initial)` | Value persisted per widget instance |
 | `useLanguage()`, `localized({ en, it, … })` | Vitrine's UI language, and the text for it from a table |

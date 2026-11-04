@@ -1,5 +1,6 @@
 // Reactive access to engine data for widget components.
 import { createSignal, onCleanup, type Accessor } from "solid-js";
+import { responsive, type References, type Responsive } from "./shape";
 import { host, on, widgetInfo } from "./host";
 
 // ── system metrics ────────────────────────────────────────────────────
@@ -89,6 +90,21 @@ on("resize", (s: Size) => setSize(s));
 /** The widget's size in DIPs (it changes when the user resizes it on the grid). */
 export function useSize(): Accessor<Size> {
   return size;
+}
+
+/**
+ * The widget's size, shape and scale for designs drawn at `refs` (one reference per shape, or one
+ * for all). Lay out by `shape` and multiply every dimension of the design by `scale`: the widget
+ * then looks the same at every size of a shape, nothing appearing or disappearing.
+ *
+ *     const r = useResponsive({ square: [136, 136], wide: [280, 136] });
+ *     <text style={{ fontSize: 34 * r().scale }}>…</text>
+ */
+export function useResponsive(refs: References): Accessor<Responsive> {
+  return () => {
+    const s = size();
+    return responsive(s.width, s.height, refs);
+  };
 }
 
 // ── clock ─────────────────────────────────────────────────────────────

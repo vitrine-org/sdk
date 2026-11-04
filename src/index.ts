@@ -12,6 +12,7 @@ export {
   useClock,
   useLanguage,
   useSettings,
+  useResponsive,
   useSize,
   useStorage,
   useSystem,
@@ -22,6 +23,16 @@ export {
   type SystemSnapshot,
 } from "./hooks";
 export { on, widgetInfo, type WidgetInfo } from "./host";
+export {
+  fitScale,
+  referenceFor,
+  responsive,
+  shapeOf,
+  type Reference,
+  type References,
+  type Responsive,
+  type Shape,
+} from "./shape";
 export type { PointerEventData } from "./renderer";
 export * from "./types";
 
