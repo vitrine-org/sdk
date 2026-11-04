@@ -8,6 +8,6 @@
     "dev": "vitrine-widget dev"
   },
   "dependencies": {
-    "@vitrine/sdk": "github:vitrine-org/sdk#v2.1.0"
+    "@vitrine/sdk": "github:vitrine-org/sdk#v2.2.0"
   }
 }
