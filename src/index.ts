@@ -6,6 +6,7 @@ import { flush, render as renderInto, root } from "./renderer";
 export { formatDate, formatTime, localeInfo, type LocaleInfo } from "./format";
 export {
   openUrl,
+  prompt,
   useAppearance,
   useClock,
   useSettings,
@@ -14,6 +15,7 @@ export {
   useSystem,
   type Appearance,
   type Metric,
+  type PromptOptions,
   type Size,
   type SystemSnapshot,
 } from "./hooks";

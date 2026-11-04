@@ -148,6 +148,39 @@ export function openUrl(url: string) {
   host.openUrl(url);
 }
 
+// ── prompt ────────────────────────────────────────────────────────────
+export interface PromptOptions {
+  /** Dialog heading, e.g. "New task". */
+  title?: string;
+  placeholder?: string;
+  /** Initial text (when editing). */
+  value?: string;
+}
+
+let promptSeq = 0;
+const pendingPrompts = new Map<number, (value: string | null) => void>();
+on("prompt", (d: { id: number; value: string | null }) => {
+  const resolve = pendingPrompts.get(d.id);
+  if (resolve) {
+    pendingPrompts.delete(d.id);
+    resolve(typeof d.value === "string" ? d.value : null);
+  }
+});
+
+/**
+ * Asks the user for a line of text in a small dialog next to the widget
+ * (widgets never get keyboard focus). Resolves to `null` when cancelled or when
+ * the engine has no prompt support. Call it from a click handler.
+ */
+export function prompt(options: PromptOptions = {}): Promise<string | null> {
+  if (typeof host.prompt !== "function") return Promise.resolve(null);
+  const id = ++promptSeq;
+  return new Promise((resolve) => {
+    pendingPrompts.set(id, resolve);
+    host.prompt!(id, JSON.stringify(options));
+  });
+}
+
 // ── appearance ────────────────────────────────────────────────────────
 export interface Appearance {
   /** Windows "app mode" is dark. */

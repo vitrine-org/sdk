@@ -13,6 +13,8 @@ export interface HostApi {
   storageSet(key: string, value?: string): void;
   size(): string;
   openUrl(url: string): void;
+  /** Vitrine 2.0+: opens a text prompt; the answer arrives as a "prompt" event. */
+  prompt?(id: number, optionsJson: string): void;
   localeInfo(locale?: string): string;
   appearance(): string;
   now(): number;
