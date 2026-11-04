@@ -1,6 +1,6 @@
 # My widgets
 
-A widget package for [Vitrine](https://github.com/vitrine-widgets/vitrine).
+A widget package for [Vitrine](https://github.com/vitrine-org/vitrine).
 
 ```sh
 npm install

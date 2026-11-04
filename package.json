@@ -4,8 +4,8 @@
   "description": "SDK and tooling to build Vitrine widgets with JSX and SolidJS",
   "license": "MIT",
   "author": "Emanuele Frascella",
-  "repository": { "type": "git", "url": "git+https://github.com/vitrine-widgets/sdk.git" },
-  "homepage": "https://vitrine-widgets.github.io/",
+  "repository": { "type": "git", "url": "git+https://github.com/vitrine-org/sdk.git" },
+  "homepage": "https://vitrine-org.github.io/",
   "type": "module",
   "bin": { "vitrine-widget": "bin/vitrine-widget.js" },
   "exports": {

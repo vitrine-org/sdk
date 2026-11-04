@@ -1,9 +1,9 @@
 # @vitrine/sdk
 
-Build widgets for [Vitrine](https://github.com/vitrine-widgets/vitrine) with JSX and SolidJS.
+Build widgets for [Vitrine](https://github.com/vitrine-org/vitrine) with JSX and SolidJS.
 
 ```sh
-npx github:vitrine-widgets/sdk create my-widgets --id=dev.you.widgets
+npx github:vitrine-org/sdk create my-widgets --id=dev.you.widgets
 cd my-widgets && npm install
 npm run pack        # → widgets-1.0.0.vitrine
 ```
