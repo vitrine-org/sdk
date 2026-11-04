@@ -41,7 +41,8 @@ on("system", (data: SystemSnapshot) => setSnapshot((prev) => ({ ...prev, ...data
 /**
  * Subscribes to system metrics. The engine only samples what some widget asked for,
  * at the fastest interval requested (minimum 1 s). Declare the matching
- * `system.<metric>` permissions in `vitrine.json`.
+ * `system.<metric>` permissions in `vitrine.json` (`system.info` for the `system`
+ * metric: host name, Windows version, uptime).
  */
 export function useSystem(metrics: Metric[], intervalMs = 2000): Accessor<SystemSnapshot> {
   const id = nextSub++;
