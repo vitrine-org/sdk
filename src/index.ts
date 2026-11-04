@@ -1,6 +1,6 @@
 // @vitrine/sdk — build Vitrine widgets with JSX and SolidJS.
 import "./polyfills";
-import type { JSX } from "solid-js";
+import type { JSX } from "./types";
 import { flush, render as renderInto, root } from "./renderer";
 
 export { formatDate, formatTime, localeInfo, type LocaleInfo } from "./format";

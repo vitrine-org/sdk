@@ -141,8 +141,14 @@ export interface VitrineElements {
   path: ShapeProps & { d: string };
 }
 
-declare module "solid-js" {
-  namespace JSX {
-    interface IntrinsicElements extends VitrineElements {}
+/** JSX namespace for `jsxImportSource: "@vitrine/sdk"` (re-exported by jsx-runtime). */
+export namespace JSX {
+  export type Element = any;
+  export interface ElementChildrenAttribute {
+    children: {};
   }
+  export interface IntrinsicAttributes {
+    key?: string | number;
+  }
+  export interface IntrinsicElements extends VitrineElements {}
 }
