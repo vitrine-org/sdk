@@ -1,6 +1,6 @@
 {
   "name": "@vitrine/sdk",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "SDK and tooling to build Vitrine widgets with JSX and SolidJS",
   "license": "MIT",
   "author": "Emanuele Frascella",
