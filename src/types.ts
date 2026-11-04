@@ -63,6 +63,14 @@ export interface Style {
   borderBottomRightRadius?: number;
   borderBottomLeftRadius?: number;
   boxShadow?: string;
+  /**
+   * Frosted glass, like CSS `backdrop-filter`: `"blur(16px) saturate(1.6)"`,
+   * either function alone, or `"none"`. The desktop wallpaper behind the box is
+   * blurred (radius in DIPs) and saturated, clipped to `borderRadius`, and drawn
+   * under the box's own `background` (keep it translucent). Not inherited; only
+   * the wallpaper shows through, not other widget content.
+   */
+  backdropFilter?: string;
   opacity?: number;
   /** `translate(x, y) rotate(deg) scale(s)`, applied around the box centre. */
   transform?: string;

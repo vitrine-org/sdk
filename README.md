@@ -31,6 +31,7 @@ mount(() => <Clock />);
 `view` (flex/grid box), `text` / `span` (styled text, `br` for line breaks), `image`, and `svg` with
 `g`, `circle`, `ellipse`, `rect`, `line`, `path`. Styles are camelCase and CSS-like: flexbox, grid,
 padding, borders, radii, gradients, box and text shadows, transforms, transitions on numeric values, fonts.
+`backdropFilter: "blur(16px) saturate(1.6)"` gives a box real frosted glass over the desktop wallpaper.
 As in CSS, a `view` lays out its children in a row by default (`flexDirection: "column"` to stack
 them) and children may shrink: give fixed-size decorations such as dividers `flexShrink: 0`.
 
