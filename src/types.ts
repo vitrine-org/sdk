@@ -84,6 +84,9 @@ export interface Style {
   letterSpacing?: Len;
   /** CSS-like `"dx dy blur color"`, inherited; a real Gaussian blur. */
   textShadow?: string;
+  /** Vitrine 2.1+: `"underline"`, `"line-through"`, both, or `"none"`. Applies to nested text. */
+  textDecoration?: "none" | "underline" | "line-through" | "underline line-through";
+  textDecorationLine?: "none" | "underline" | "line-through" | "underline line-through";
   lineHeight?: Len;
   textAlign?: "left" | "start" | "center" | "right" | "end" | "justify";
   textTransform?: "none" | "uppercase" | "lowercase" | "capitalize";
