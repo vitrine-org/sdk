@@ -19,7 +19,7 @@ function Clock() {
         fontFamily: "Segoe UI Variable Display",
       }}
     >
-      <text style={{ fontSize: 44, fontWeight: 600, lineHeight: 1 }}>
+      <text style={{ fontSize: 44, fontWeight: 600, lineHeight: 1, textShadow: "0 2px 8px rgba(0,0,0,0.9)" }}>
         {formatDate(now(), "HH")}
         <span style={{ color: settings().accent }}>{formatDate(now(), settings().showSeconds ? ":mm:ss" : ":mm")}</span>
       </text>

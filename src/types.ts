@@ -74,6 +74,8 @@ export interface Style {
   fontWeight?: number | "normal" | "bold";
   fontStyle?: "normal" | "italic";
   letterSpacing?: Len;
+  /** CSS-like `"dx dy blur color"`, inherited; a real Gaussian blur. */
+  textShadow?: string;
   lineHeight?: Len;
   textAlign?: "left" | "start" | "center" | "right" | "end" | "justify";
   textTransform?: "none" | "uppercase" | "lowercase" | "capitalize";
