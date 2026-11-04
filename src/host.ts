@@ -87,13 +87,21 @@ export interface WidgetInfo {
   widgetId: string;
   packageId: string;
   engineVersion: string;
+  /**
+   * Vitrine's UI language: `"en"`, `"it"`, `"fr"`, `"de"`, `"es"`, `"pt-BR"`, `"zh"` (Simplified
+   * Chinese), `"ru"`, `"ja"` or `"ko"`. `"en"` on engines that don't report it.
+   */
+  language: string;
 }
 
 /** Identity of the running widget instance. */
 export function widgetInfo(): WidgetInfo {
+  const empty = { instanceId: "", widgetId: "", packageId: "", engineVersion: "", language: "en" };
   try {
-    return JSON.parse(host.info);
+    const info = { ...empty, ...JSON.parse(host.info) };
+    if (typeof info.language !== "string" || info.language === "") info.language = "en";
+    return info;
   } catch {
-    return { instanceId: "", widgetId: "", packageId: "", engineVersion: "" };
+    return empty;
   }
 }

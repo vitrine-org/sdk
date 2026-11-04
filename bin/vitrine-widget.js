@@ -37,6 +37,14 @@ function readManifest(root) {
     if (!/^[a-z0-9-]+$/.test(w.id ?? "")) fail(`widget id "${w.id}" must match [a-z0-9-]+`);
     if (!w.entry || !existsSync(join(root, w.entry))) fail(`widget "${w.id}": entry ${w.entry} not found`);
   }
+  const tag = /^[A-Za-z]{2,3}(-[A-Za-z0-9]{2,8})*$/;
+  const ids = new Set(m.widgets.map((w) => w.id));
+  for (const [lang, l] of Object.entries(m.locales ?? {})) {
+    if (!tag.test(lang)) fail(`vitrine.json: locales: invalid language tag "${lang}"`);
+    for (const id of Object.keys(l?.widgets ?? {})) {
+      if (!ids.has(id)) fail(`vitrine.json: locales.${lang}: unknown widget "${id}"`);
+    }
+  }
   return m;
 }
 

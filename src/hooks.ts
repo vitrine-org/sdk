@@ -1,6 +1,6 @@
 // Reactive access to engine data for widget components.
 import { createSignal, onCleanup, type Accessor } from "solid-js";
-import { host, on } from "./host";
+import { host, on, widgetInfo } from "./host";
 
 // ── system metrics ────────────────────────────────────────────────────
 export type Metric = "system" | "cpu" | "memory" | "battery" | "drives" | "processes" | "network";
@@ -202,4 +202,36 @@ on("appearance", (a: Appearance) => setAppearance({ ...appearance(), ...a }));
 /** Windows light/dark mode and accent colour, updated live when the user changes them. */
 export function useAppearance(): Accessor<Appearance> {
   return appearance;
+}
+
+// ── language ──────────────────────────────────────────────────────────
+
+/**
+ * Vitrine's UI language (`"en"`, `"it"`, `"pt-BR"`, `"zh"`, …), as chosen in the control panel or
+ * Windows. Widgets restart when it changes, so it is a plain value.
+ */
+export function useLanguage(): string {
+  return widgetInfo().language;
+}
+
+/**
+ * Picks the text for the UI language from a table keyed by language tag, e.g.
+ * `localized({ en: "Today", it: "Oggi", "pt-BR": "Hoje" })`. Falls back to the same language
+ * (`pt` for `pt-BR`, `zh-CN` for `zh`), then to `en`, then to the first entry.
+ */
+export function localized<T>(texts: Record<string, T>, language = useLanguage()): T {
+  const norm = (tag: string) => {
+    const t = tag.toLowerCase().replace(/_/g, "-");
+    if (t.startsWith("zh")) return /-(hant|tw|hk|mo)\b/.test(t) ? "zh-hant" : "zh";
+    return t;
+  };
+  const base = (tag: string) => tag.split("-")[0];
+  const want = norm(language);
+  const keys = Object.keys(texts);
+  const key =
+    keys.find((k) => norm(k) === want) ??
+    keys.find((k) => base(norm(k)) === base(want) && (norm(k) === "zh-hant") === (want === "zh-hant")) ??
+    keys.find((k) => norm(k) === "en") ??
+    keys[0];
+  return texts[key];
 }
